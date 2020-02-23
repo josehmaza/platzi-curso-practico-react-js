@@ -8,7 +8,7 @@ const Header = () => (
         <img className="header__img" src={logo} alt="Platzi Video" />
         <div className="header__menu">
             <div className="header__menu--profile">
-                <img src={userIcon} alt="" />
+                <img src={userIcon} alt="Perfil" />
                 <p>Perfil</p>
             </div>
             <ul>
