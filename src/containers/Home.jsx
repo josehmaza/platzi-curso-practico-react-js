@@ -12,13 +12,13 @@ import '../assets/styles/App.scss';
 import useInitialState from '../hooks/useInitialState'
 
 const API = 'http://localhost:3000/initalState'
-const App = () => {
+const Home = () => {
 
     const initialState = useInitialState(API);
 
 
     return (
-        <div className="App">
+        <div className="Home">
             <Header></Header>
             <Search />
             {!!initialState.mylist && initialState.mylist.length > 0 &&
@@ -54,4 +54,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default Home;
