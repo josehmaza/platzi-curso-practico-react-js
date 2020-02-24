@@ -53,6 +53,11 @@ module.exports = {
         ]
     },
 
+    // Preparar para t5rabajar con rutas
+    devServer: {
+        historyApiFallback: true
+    },
+    
     plugins: [
         new HtmlWebPackPlugin({
             template: './public/index.html',
