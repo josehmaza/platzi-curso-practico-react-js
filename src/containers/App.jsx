@@ -9,36 +9,45 @@ import CarouselItem from '../components/CarouselItem'
 import Footer from '../components/Footer'
 
 import '../assets/styles/App.scss';
+import useInitialState from '../hooks/useInitialState'
 
-
+const API = 'http://localhost:3000/initalState'
 const App = () => {
-    const [videos, setVideos] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:3000/initalState')
-            .then(response => response.json())
-            .then(data => setVideos(data))
-    }, [])
-    console.log('=>JHS ', videos)
+
+    const initialState = useInitialState(API);
+
 
     return (
         <div className="App">
             <Header></Header>
             <Search />
-                {!!videos.mylist && videos.mylist.length > 0 && 
-                    <Categories>
-                        <Carousel>
-                             <CarouselItem></CarouselItem>
-                        </Carousel>
-                    </Categories>
-                }
-                <Categories title="Tendencias">
+            {!!initialState.mylist && initialState.mylist.length > 0 &&
+                <Categories>
                     <Carousel>
-                    { !!videos.trends && videos.trends.map (item => 
-                        <CarouselItem key={item.id} {...item}/>
-                    )}
+                        {!!initialState.mylist && initialState.mylist.map(item =>
+                            <CarouselItem key={item.id} {...item} />
+                        )}
                     </Carousel>
-                    
                 </Categories>
+            }
+            <Categories title="Tendencias">
+                <Carousel>
+                    {!!initialState.trends && initialState.trends.map(item =>
+                        <CarouselItem key={item.id} {...item} />
+                    )}
+                </Carousel>
+
+            </Categories>
+
+            <Categories title="Originales de PLatzi video">
+                <Carousel>
+                    {!!initialState.originals && initialState.originals.map(item =>
+                        <CarouselItem key={item.id} {...item} />
+                    )}
+                </Carousel>
+
+            </Categories>
+
 
             <Footer />
         </div>
