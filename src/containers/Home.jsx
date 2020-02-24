@@ -18,8 +18,7 @@ const Home = () => {
 
 
     return (
-        <div className="Home">
-            <Header></Header>
+        <>
             <Search />
             {!!initialState.mylist && initialState.mylist.length > 0 &&
                 <Categories>
@@ -47,10 +46,7 @@ const Home = () => {
                 </Carousel>
 
             </Categories>
-
-
-            <Footer />
-        </div>
+        </>
     )
 }
 
