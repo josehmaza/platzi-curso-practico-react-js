@@ -3,7 +3,7 @@ import '../assets/styles/components/CarouselItem.scss'
 
 import playIcon from '../assets/static/play-icon.png'
 import plusIcon from '../assets/static/plus-icon.png'
-
+import PropTypes from 'prop-types'
 const CarousellItem = ({cover, title, year, contentRating, duration}) => (
     <div className="carousel-item">
         <img className="carousel-item__img" src={cover} alt={title} />
@@ -19,6 +19,14 @@ const CarousellItem = ({cover, title, year, contentRating, duration}) => (
 
 );
 
+CarousellItem.propTypes = {
+    cover: PropTypes.string,
+    title: PropTypes.string,
+    year: PropTypes.number,
+    contentRating: PropTypes.string,
+    duration: PropTypes.number,
+
+}
 export default CarousellItem;
 
 
