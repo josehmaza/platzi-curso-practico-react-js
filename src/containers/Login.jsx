@@ -60,7 +60,7 @@ const Login = props => {
                 <Link to="/register">
                         Regístrate
                 </Link>
-
+                
                 </p>
             </section>
         </section>
